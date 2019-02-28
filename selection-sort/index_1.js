@@ -3,7 +3,7 @@
  * 2. exchange
  * @param {array} arr
  */
-function SelectionSort(arr) {
+module.exports = function SelectionSort(arr) {
     const length = arr.length;
     let min;
 
