@@ -1,0 +1,14 @@
+{
+    "name": "tortoise-arithmetic",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "mocha */**.test.js"
+    },
+    "repository": "https://github.com/BillQiu/tortoise-arithmetic",
+    "author": "<fanglaiq@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^6.0.2"
+    }
+}

@@ -3,7 +3,8 @@
  * @param array
  * @param n
  */
-function InsertSort(array, n) {
+module.exports = function InsertSort(array) {
+    const n = array.length;
     if (n < 1) return;
 
     for(let i = 1; i < n; i++ ) {
