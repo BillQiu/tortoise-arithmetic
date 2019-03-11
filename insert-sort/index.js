@@ -1,7 +1,6 @@
 /**
  * 对边界条件的处理
  * @param array
- * @param n
  */
 module.exports = function InsertSort(array) {
     const n = array.length;
