@@ -4,9 +4,8 @@
  * nlog(n)
  * @param {Array} arr
  */
-module.exports = function QuickSort(arr) {
-    partition(arr, 0, arr[arr.length - 1]);
-
+function quickSort_v0(arr) {
+    return partition_v0(arr, 0, arr.length - 1);
 }
 
 /**
@@ -16,8 +15,8 @@ module.exports = function QuickSort(arr) {
  * @param {Number} p 起始位置
  * @param {Number} r 结束位置
  */
-function partition(A, p, r) {
-    if (p >= r) return;
+function partition_v0(A, p, r) {
+    if (A.length <= 1) return A;
 
     const pivot = A[r];
     let left = [];
@@ -33,8 +32,46 @@ function partition(A, p, r) {
         }
     }
 
-    left = partition(left, 0, left.length)
-    right = partition(right, 0, right.length)
+    left = partition_v0(left, 0, left.length - 1)
+    right = partition_v0(right, 0, right.length - 1)
 
     return [...left, pivot, ...right]
+}
+
+const quickSort_v1 = (arr, left, right) => {
+    if (left < right) {
+        let partitionIndex = partition_v1(arr, left, right)
+        quickSort_v1(arr, left, partitionIndex - 1 < left ? left : partitionIndex - 1);
+        quickSort_v1(arr, partitionIndex + 1 > right ? right : partitionIndex + 1, right);
+    }
+}
+
+function swap(A, i, j) {
+    const tmp = A[i];
+
+    A[i] = A[j];
+    A[j] = tmp;
+}
+
+function partition_v1(A, p, r) {
+    if (A.length <= 1) return;
+
+    const pivot = A[r];
+    let i = p;
+
+    for (let j = p; j < r; j++) {
+        if (A[j] < pivot) {
+            swap(A, i, j);
+            i++;
+        }
+    }
+    swap(A, r, i);
+
+    return i;
+}
+
+
+module.exports = {
+    quickSort_v0,
+    quickSort_v1
 }

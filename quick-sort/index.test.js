@@ -1,12 +1,17 @@
-const QuickSort = require('./index');
+const { quickSort_v0, quickSort_v1} = require('./index');
 const expect = require('chai').expect;
 
+const source = [4, 1, 5, 9, 7]
+const target = [1, 4, 5, 7, 9]
 
 describe('QuickSortTest', function() {
-    it('V0', function() {
-        expect(QuickSort([4, 1, 5, 9, 7])).to.deep.equal([1, 4, 5, 7, 9]);
+    it('v0', function() {
+        expect(quickSort_v0(source)).to.deep.equal(target);
     });
-    // it('V1', function() {
-    //     expect(SelectionSort_1([4, 1, 5, 9, 7])).to.deep.equal([1, 4, 5, 7, 9]);
-    // });
+    it('v1', function() {
+        quickSort_v1(source, 0, source.length - 1);
+
+        expect(source).to.deep.equal(target);
+    });
 });
+
