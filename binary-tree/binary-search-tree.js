@@ -41,7 +41,25 @@ class BST {
         }
     };
 
-    find = data => {};
+    // TODO: 重复数据
+    find = data => {
+        let current = this.root;
+        while (current !== null) {
+            if (current.data === data) {
+                return current;
+            } else if (data > current.data) {
+                current = current.right;
+            } else {
+                current = current.left;
+            }
+        }
+
+        return null;
+    };
+
+    delete = data => {
+        let current = this.root;
+    };
 }
 
 function Node(data, left = null, right = null) {
